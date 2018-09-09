@@ -7,7 +7,6 @@ const config = require('../config/config');
 
 
 router.post('/register',  (req, res, next) => {
-    console.log('hello');
     let usr = {
         firstName: req.body.firstName,
         lastName: req.body.lastName,
@@ -16,9 +15,21 @@ router.post('/register',  (req, res, next) => {
     }
     User.create(usr, (err, result) => {
         if(err) {
-            res.json(err);
+            if(err.code == 11000) {
+                res.json({
+                    success: false,
+                    msg: 'Email already registered.'
+                })
+            }
+            res.json({
+                success: false,
+                msg: 'Unexpected error occurred.'
+            })
         } else {
-            res.json(result);
+            res.json({
+                success: true,
+                msg: 'You are now registered.'
+            })
         }
     })
 })

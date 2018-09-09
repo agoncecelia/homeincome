@@ -1,16 +1,16 @@
-<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-    <a class="navbar-brand" href="#">Home Income</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+<div class="navbar navbar-expand-md navbar-light bg-light scroll">
+  <a class="navbar-brand">One Of Ten</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-      <ul class="nav navbar-nav navbar-left">
-        <li [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}"><a class="nav-link" [routerLink]="['/']">Home</a></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}"><a class="nav-link" [routerLink]="['/login']">Login</a></li>
-        <li [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}"><a class="nav-link" [routerLink]="['/register']">Register</a></li>
-      </ul>
-    </div>
-  </nav>
+  <div class="collapse navbar-collapse" id="navbar">
+    <ul class="nav navbar-nav">
+      <li [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}"><a class="nav-link" [routerLink]="['/']">Home</a></li>
+    </ul>
+    <ul class="nav navbar-nav ml-auto">
+      <li [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}"><a class="nav-link" [routerLink]="['/login']">Login</a></li>
+      <li [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}"><a class="nav-link" [routerLink]="['/register']">Register</a></li>
+    </ul>
+  </div>
+</div>

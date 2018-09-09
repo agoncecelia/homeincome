@@ -15,12 +15,16 @@ module.exports = {
         bcrypt.genSalt(10, (err, salt) => {
             bcrypt.hash(user.password, salt, (err, hash) => {
                 if(err) {
-                callback(err, null);
+                    callback(err, null);
                 } else {
                     let usr = new User(user);
                     usr.password = hash
-                    usr.save();
-                    callback(null, usr);
+                    usr.save()
+                    .then(result => {
+                        callback(null, usr);
+                    }).catch(err => {
+                        callback(err, null);
+                    });
                 }    
             })
         })
