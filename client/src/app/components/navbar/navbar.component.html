@@ -1,19 +1,21 @@
 <div class="navbar navbar-expand-md navbar-light bg-light scroll">
-  <a class="navbar-brand">One Of Ten</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+  <div class="container">
+    <a class="navbar-brand">One Of Ten</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-  <div class="collapse navbar-collapse" id="navbar">
-    <ul class="nav navbar-nav">
-      <li [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}"><a class="nav-link" [routerLink]="['/']">Home</a></li>
-    </ul>
-    <ul class="nav navbar-nav ml-auto">
-      <li *ngIf="authService.loggedIn() == true" [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}"><a class="nav-link" [routerLink]="['/dashboard']">Dashboard</a></li>
-      <li *ngIf="authService.loggedIn() == true" [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}"><a class="nav-link" [routerLink]="['/profile']">Profile</a></li>
-      <li *ngIf="authService.loggedIn() == false" [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}"><a class="nav-link" [routerLink]="['/login']">Login</a></li>
-      <li *ngIf="authService.loggedIn() == false" [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}"><a class="nav-link" [routerLink]="['/register']">Register</a></li>
-      <li *ngIf="authService.loggedIn() == true"><a class="nav-link" href="#" (click)="onLogoutClick()">Logout</a></li>
-    </ul>
+    <div class="collapse navbar-collapse" id="navbar">
+      <ul class="nav navbar-nav">
+        <li [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}"><a class="nav-link" [routerLink]="['/']">Home</a></li>
+      </ul>
+      <ul class="nav navbar-nav ml-auto">
+        <li *ngIf="authService.loggedIn() == true" [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}"><a class="nav-link" [routerLink]="['/dashboard']">Dashboard</a></li>
+        <li *ngIf="authService.loggedIn() == true" [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}"><a class="nav-link" [routerLink]="['/profile']">Profile</a></li>
+        <li *ngIf="authService.loggedIn() == false" [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}"><a class="nav-link" [routerLink]="['/login']">Login</a></li>
+        <li *ngIf="authService.loggedIn() == false" [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}"><a class="nav-link" [routerLink]="['/register']">Register</a></li>
+        <li *ngIf="authService.loggedIn() == true"><a class="nav-link" href="#" (click)="onLogoutClick()">Logout</a></li>
+      </ul>
+    </div>
   </div>
 </div>
