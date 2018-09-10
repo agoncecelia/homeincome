@@ -15,7 +15,7 @@ app.use(cors());
 // Connect to MongoDB
 mongoose
   .connect(
-    'mongodb://localhost:27017/homeincome',
+    'mongodb://mongo:27017/homeincome',
     { useNewUrlParser: true }
   )
   .then(() => console.log('MongoDB Connected'))
