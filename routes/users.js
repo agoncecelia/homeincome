@@ -46,19 +46,19 @@ router.post('/authenticate',  (req, res, next) => {
             return res.json({success: false, msg: 'User not found'});
         }
 
-        User.authenticate(usr, returnedUser.password).then(isMatch => {
-            console.log(isMatch);
+        User.authenticate(usr, user.password).then(isMatch => {
             if(isMatch) {
-                const token = jwt.sign(user, config.secret, {expiresIn: 604800});
+                const returnedUser = {
+                    id: user._id,
+                    firstName: user.firstName,
+                    lastName: user.lastName,
+                    email: user.email
+                }
+                const token = jwt.sign(returnedUser, config.secret, {expiresIn: 604800});
                 res.json({
                     success: true,
                     token: 'JWT ' + token,
-                    user: {
-                        id: user._id,
-                        email: user.email,
-                        firstName: user.firstName,
-                        lastName: user.lastName
-                    }
+                    user: returnedUser
                 })
             } else {
                 return res.json({success: false, msg: 'Wrong Password'});
@@ -70,7 +70,13 @@ router.post('/authenticate',  (req, res, next) => {
 })
 
 router.get('/profile',  passport.authenticate('jwt', {session: false}), (req, res, next) => {
-   res.json(req.user);
+   const user = {
+       firstName: req.user.firstName,
+       lastName: req.user.lastName,
+       email: req.user.email,
+       id: req.user.id
+   }
+    res.json(user);
 })
 
 module.exports = router;

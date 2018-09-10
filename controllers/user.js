@@ -2,6 +2,7 @@ const User = require('../models/user');
 const bcrypt = require('bcryptjs');
 module.exports = {
     findById: (id, callback) => {
+        console.log('ID: ' + id);
         User.findById(id, (err, result) => {
             callback(err, result);
         })
